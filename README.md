@@ -1,130 +1,248 @@
 🎙️ VocalTune Studio
+Professional Auto-Tune & Vocal Recording Studio for Android
 
-Professional Android Auto-Tune & Vocal Recording Studio
+<p align="center">
+**Your Voice. Your Sound. Perfectly Tuned.**
+</p>
 
-VocalTune Studio is an Android vocal processing application designed to provide real-time pitch correction, professional vocal recording, and audio effects.
+<p align="center">
+A modern Android vocal processing studio featuring real-time pitch correction, professional recording, and powerful audio effects.
+</p>
 
-The project aims to modernize the original MicDroid pitch-correction technology into a modern Android music production experience.
+<p align="center">
+<img src="https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white" />
+<img src="https://img.shields.io/badge/Language-Kotlin-7F52FF?logo=kotlin&logoColor=white" />
+<img src="https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=white" />
+<img src="https://img.shields.io/badge/Audio-DSP-purple" />
+<img src="https://img.shields.io/badge/Status-In%20Development-orange" />
+</p>
 
-✨ Features
-🎤 Live Auto-Tune
-Real-time microphone input.
+✨ Overview
+
+VocalTune Studio is an Android application project designed to bring professional vocal processing and Auto-Tune capabilities to mobile devices.
+
+Inspired by the original MicDroid project, VocalTune Studio aims to modernize classic pitch-correction technology with a new interface, improved audio architecture, and an expanded recording environment.
+
+The goal is to create a complete mobile vocal studio where users can sing, correct their pitch in real time, record performances, apply effects, and export high-quality audio.
+
+🎯 Vision
+
+Build a professional Android vocal studio that combines:
+
+Real-time Auto-Tune.
+Advanced pitch detection.
+Natural and robotic vocal correction.
+High-quality vocal recording.
+Professional audio effects.
+Offline audio processing.
+A modern and intuitive user experience.
+🚀 Features
+🎤 LIVE Mode
+
+Real-time microphone processing.
+
+Live microphone input.
 Automatic pitch detection.
+Real-time pitch correction.
 Musical key selection.
 Major and Minor scales.
-Adjustable pitch correction strength.
+Adjustable correction strength.
 Retune speed control.
-Original audio bypass.
-Live audio level monitoring.
-🎧 Recording Studio
-Record vocals directly from the microphone.
+Live pitch visualization.
+Input and output level meters.
+Original voice bypass.
+Low-latency audio processing.
+🎧 STUDIO Mode
+
+A complete vocal recording environment.
+
+Record vocals using the device microphone.
 Pause and resume recordings.
-Playback recorded audio.
+Playback recorded performances.
 Apply pitch correction after recording.
-Compare original and corrected vocals.
-Save recordings locally.
-Export WAV audio files.
-🎛️ Vocal Effects
+Compare original and corrected audio.
+Adjust correction parameters.
+Save multiple versions.
+Export WAV audio.
+Manage local recordings.
+🎛️ Professional Vocal Effects
 
-Planned audio effects:
+Planned audio processing modules:
 
-Auto-Tune.
-Reverb.
-Echo and Delay.
-Equalizer.
-Compressor.
-Noise Gate.
-Vocal Gain.
-🎨 Modern Interface
-Dark professional music studio design.
-Purple and violet visual theme.
-Jetpack Compose interface.
-Arabic and English language support.
-Responsive Android layouts.
-🛠️ Technology Stack
-Technology	Purpose
-Kotlin	Android development
-Jetpack Compose	User interface
-Material 3	Design system
-Android AudioRecord	Microphone input
-Android AudioTrack	Audio output
-Android NDK / C++	Native audio processing
-Oboe	Low-latency audio
-JNI	Kotlin/C++ integration
-DSP	Pitch detection and correction
-🧠 Original Project
+Effect	Description
+Auto-Tune	Automatic pitch correction
+Reverb	Vocal space and depth
+Echo	Repeated audio reflections
+Equalizer	Frequency adjustment
+Compressor	Dynamic range control
+Noise Gate	Background noise reduction
+Pitch Shift	Creative vocal transformation
+Gain	Input and output level control
+🎼 Musical Controls
+Chromatic pitch detection.
+Musical note recognition.
+Key selection.
+Major and Minor scales.
+Custom correction strength.
+Adjustable retune speed.
+Natural and hard tuning styles.
+🎨 Modern User Interface
+Premium dark interface.
+Black and purple color palette.
+Neon-inspired visual elements.
+Modern Jetpack Compose components.
+Smooth animations.
+Arabic and English localization.
+Responsive layouts.
+🧠 Audio Processing Technology
 
-VocalTune Studio uses the following repositories as technical references:
+VocalTune Studio is designed around a dedicated Digital Signal Processing (DSP) engine.
 
-MicDroid – vantom-404 — Primary candidate and modified fork.
-MicDroid – intervigilium — Original upstream repository.
-
-The original project's pitch-correction implementation will be evaluated for reuse and modernization.
-
-All reused source code and dependencies must comply with their respective open-source licenses.
-
-🏗️ Architecture
-
-The planned architecture separates the application interface from audio processing.
+The intended audio pipeline:
 
 text
-VocalTune Studio
+Microphone Input
+       |
+       v
+Audio Capture
+       |
+       v
+Audio Buffering
+       |
+       v
+Pitch Detection
+       |
+       v
+Fundamental Frequency Analysis
+       |
+       v
+Musical Note Mapping
+       |
+       v
+Pitch Correction
+       |
+       v
+Vocal Effects
+       |
+       v
+Audio Output
+       |
+       v
+Headphones / Speakers
+
+Pitch Detection
+
+Candidate algorithms include:
+
+YIN.
+Autocorrelation.
+Other validated fundamental-frequency estimation methods.
+Pitch Correction
+
+The engine is intended to provide:
+
+Musical scale-aware correction.
+Smooth pitch transitions.
+Adjustable tuning strength.
+Pitch shifting without changing the overall playback duration.
+Formant preservation where practical.
+
+Important: Pitch detection and pitch correction are separate processing stages. Detecting a note alone does not constitute Auto-Tune.
+
+🏗️ Technology Stack
+Technology	Purpose
+Kotlin	Android application development
+Jetpack Compose	Modern UI
+Material 3	UI components and styling
+MVVM	Application architecture
+Coroutines	Asynchronous operations
+StateFlow	Reactive application state
+AudioRecord	Microphone input
+AudioTrack	Audio output
+C++	Native DSP processing
+Android NDK	Native Android development
+JNI	Kotlin/C++ communication
+Oboe	Low-latency audio streams
+CMake	Native build configuration
+📂 Project Architecture
+
+The planned architecture separates the user interface, recording system, and audio engine.
+
+text
+VocalTuneStudio/
 │
-├── Android Application
-│   ├── Jetpack Compose UI
-│   ├── Home Screen
-│   ├── Live Auto-Tune
-│   ├── Recording Studio
-│   ├── Effects
-│   └── Recording Library
+├── app/
+│   ├── src/main/
+│   │   ├── java/
+│   │   │   └── com/vocalsuite/studio/
+│   │   │       ├── ui/
+│   │   │       │   ├── home/
+│   │   │       │   ├── live/
+│   │   │       │   ├── studio/
+│   │   │       │   ├── effects/
+│   │   │       │   └── library/
+│   │   │       │
+│   │   │       ├── audio/
+│   │   │       ├── recording/
+│   │   │       ├── data/
+│   │   │       ├── settings/
+│   │   │       └── navigation/
+│   │   │
+│   │   └── cpp/
+│   │       ├── audio_engine/
+│   │       ├── pitch_detection/
+│   │       ├── pitch_correction/
+│   │       └── effects/
+│   │
+│   └── build.gradle.kts
 │
-├── Audio Engine
-│   ├── Microphone Input
-│   ├── Pitch Detection
-│   ├── Pitch Correction
-│   ├── Audio Effects
-│   └── Audio Output
-│
-├── Native DSP Engine
-│   ├── C++ Processing
-│   ├── Oboe Audio Stream
-│   └── JNI Bridge
-│
-└── Local Storage
-    ├── Recordings
-    ├── Presets
-    └── User Settings
+├── gradle/
+├── README.md
+└── settings.gradle.kts
 
-🚀 Development Roadmap
-Analyze the modified MicDroid fork.
-Compare the fork with the original repository.
-Verify source-code licenses.
-Create the modern Android application.
-Implement the Jetpack Compose interface.
-Implement microphone recording.
-Integrate the pitch detection engine.
-Implement real-time pitch correction.
-Add offline vocal correction.
-Add Reverb and Echo.
-Implement WAV export.
-Test audio latency and performance.
-Build and test the Android APK.
-📱 Platform
-Android smartphones and tablets.
-Native Android application.
-Local audio processing.
-No cloud connection required for core audio processing.
-🔒 Privacy
 
-The intended architecture processes microphone audio locally on the device.
+This is the target architecture; actual directories may evolve during development.
 
-Microphone access requires explicit Android permission.
+🔗 Original Project & Inspiration
 
-Recordings are stored locally unless the user chooses to export or share them.
+VocalTune Studio uses MicDroid as its primary technical reference.
 
-⚙️ Build Requirements
+Source repositories
+Modified Fork: vantom-404/MicDroid
+Original Upstream: intervigilium/MicDroid
 
-The final development environment is expected to include:
+The modified fork is the primary candidate for technical evaluation.
+
+The original repository is retained as an upstream reference for comparing implementations and identifying useful functionality.
+
+Reuse Policy
+
+Before integrating any source code:
+
+Review the original repository license.
+Review the fork's license and modifications.
+Verify third-party dependency licenses.
+Preserve required copyright notices.
+Document all reused components.
+🛠️ Development Roadmap
+Phase	Task	Status
+01	Analyze MicDroid fork	Planned
+02	Compare upstream changes	Planned
+03	Build modern Android UI	Planned
+04	Implement recording system	Planned
+05	Implement pitch detection	Planned
+06	Integrate pitch correction	Planned
+07	Develop real-time audio engine	Planned
+08	Add vocal effects	Planned
+09	Implement WAV export	Planned
+10	Optimize audio latency	Planned
+11	Test on Android devices	Planned
+12	Release APK	Planned
+📱 Platform & Requirements
+
+Target platform: Android
+
+Development environment:
 
 Android Studio.
 Android SDK.
@@ -132,27 +250,66 @@ Kotlin.
 Android Gradle Plugin.
 Android NDK.
 CMake.
-Oboe audio library.
+Oboe.
 
-Build instructions will be finalized after the native audio engine and project configuration are established.
+A physical Android device is recommended for evaluating real-time audio latency and microphone performance.
 
+🔒 Privacy
+
+The application is designed with local audio processing as its primary approach.
+
+Microphone permission is required.
+Recordings are stored locally.
+Core pitch correction is intended to run on-device.
+No cloud service is required for the core audio engine.
+Users control exporting and sharing their recordings.
 ⚠️ Development Status
 
-Project Status: In Development
+VocalTune Studio is currently in development.
 
-VocalTune Studio is under active development planning.
+The proposed features and architecture describe the project goals, not a claim that every feature is already implemented.
 
-The interface, real-time audio engine, pitch correction, and recording workflow must be implemented and tested before being considered production-ready.
+Real-time pitch correction, recording, and audio effects must be independently implemented and tested before being marked as production-ready.
 
-🎯 Project Goal
+🤝 Contributing
 
-Create a modern Android Auto-Tune application that allows users to:
+Contributions and technical suggestions are welcome.
 
-Sing into their microphone.
-Hear their corrected voice in real time.
-Record vocal performances.
-Apply professional pitch correction.
-Add vocal effects.
-Export high-quality audio recordings.
+Potential contribution areas:
 
-VocalTune Studio — Your Voice, Perfectly Tuned.
+Android development.
+Digital Signal Processing.
+Pitch detection algorithms.
+Audio effects.
+UI/UX design.
+Performance optimization.
+Testing on physical devices.
+
+Please open an issue before submitting major architectural changes.
+
+📜 License
+
+The project license will be determined after reviewing the licenses of the MicDroid fork, upstream source, and integrated dependencies.
+
+All third-party copyright and license requirements must be respected.
+
+⭐ Support the Project
+
+If you find VocalTune Studio interesting:
+
+Star the repository.
+Report bugs.
+Suggest features.
+Contribute improvements.
+Share the project with Android music creators.
+
+<p align="center">
+**VocalTune Studio**
+
+Your Voice. Your Sound. Perfectly Tuned.
+
+</p>
+
+<p align="center">
+Built for singers, musicians, and creators. 🎙️
+</p>
